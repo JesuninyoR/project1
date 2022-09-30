@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <title>Products</title>
+   <style>
+    *{
+        margin: 0;
+        padding: 0;
+        color: white;
+    }
+    .products-list{
+        display: grid;
+        flex-wrap: wrap;
+        grid-template-columns: repeat(3, 1fr);
+        gap:10px;
+        padding: 50px;
+     
+    
+    }
+    .product{
+        background-color: rgba(0, 0, 211, 0.822);
+        padding: 5px;
+        border-radius: 5px;
+        color: #ffff;
+        transition: all .3s ease-in-out;
+    }
+    .product:hover{
+        background-color: aqua;
+        transition: all ease .5s;
+    }
+    .product img { 
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .product .details {
+        padding: 10px;
+    }
+
+    .product .name {
+        font-size: 150%;
+        font-weight: bold;
+        margin: 5px 0px;
+    }
+    @media only screen and (max-width:760px) {
+        .products-list{
+            display: inline-block;
+
+            /* padding-top: 500px; */
+            
+        }
+        #bac{
+           padding-top:-170px ;
+        }
+    }
+        
+    
+   </style>
+</head>
+<body>
+
+    <section>
+        <div style="background-color: aqua;height: fit-content;">
+            <div id="bac" style="padding: 30px 0px 30px 0px;">
+            <p style="font-size: 50px;font-family: Georgia, 'Times New Roman', Times, serif;text-align: center;;">Get yourself a fancy and designer sneakers</p>
+            <p style="text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;font-size: 30px;">now and get up to 30% discount</p>
+            <p style="text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;font-size: 30px;">on each product you purchase. </p>
+            <p style="font-size: 39px;font-family:Georgia, 'Times New Roman', Times, serif;text-align: center;"> <br> Available in store for a limited time.</p>
+            </div>
+        </div>
+    </section>
+    <div class="products-list">
+        <!-- <div class="item"> -->
+            <!-- <img src="">
+            <div class="product">
+            <div class="details">
+                <div class="name">name:jordan air</div>
+                <div class="price">price:15000</div>
+            </div>-->
+        <!-- </div> -->
+    </div>
+
+</div>
+<script>
+    const products =[
+        {
+            name: 'Nike Air Jordan1',
+            price:"#10000",
+            photo:"https://static-uc.olist.ng/upload/i03/20220913/39phcgtxx8u9.jpg"
+        },
+        {
+            name: 'New Latest Versace',
+            price:"#75000",
+            photo:"https://sneakernews.com/wp-content/uploads/2018/01/2chainz-versace-shoes-2.jpg?w=780&h=550&crop=1"
+        },
+        {
+            name: 'Dior Jordan',
+            price:"#35000",
+            photo:'https://hips.hearstapps.com/hmg-prod/images/3shi30zddh160-e12-rectangle-1600-1575469082.jpg?resize=980:*'
+        },
+        {
+            name: 'Valentino Unisex',
+            price:"#19000",
+            photo:'https://bexit.gumlet.io/pub/media/catalog/product/i/m/img_2D_0001_105885.jpg?w=440&h=440&trim=35&mode=fill&pad=30'
+        },
+        {
+            name: 'Adidas Yeezy sneakers',
+            price:"#10000",
+            photo:'https://i.pinimg.com/564x/61/5c/e9/615ce996fb0babd56f41f8af2c582166.jpg'
+        },
+        {
+            name: 'Converse Pro Leather',
+            price:"#9000",
+            photo:'https://media.finishline.com/i/finishline/166813C_189_P1?$default$&w=671&&h=671&bg=rgb(237,237,237)'
+        },
+        {
+            name: 'Reebok classic leather',
+            price:"#10000",
+            photo:"https://www.shooos.com/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/f/v/fv1081.jpg"
+        },
+        {
+            name: 'New Balance',
+            price:"#10000",
+            photo:'https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2020%2F12%2Fnew-balance-2020-year-in-review-2.jpg?w=1600&cbr=1&q=90&fit=max'
+        },
+        {
+            name: 'Saucony Originals "Jazz 81"',
+            price:"#15000",
+            photo:'https://s7d4.scene7.com/is/image/WolverineWorldWide/S70539-2_1?wid=584&hei=484&fmt=jpeg&qlt=80,0&op_sharpen=0&resMode=sharp2&op_usm=.5,1,1,0&iccEmbed=0&printRes=72'
+        }
+    ]
+
+    const list = document.querySelector('.products-list')
+
+    products.forEach((product)=>{
+        const container=document.createElement('div');
+        container.classList.add('product');
+
+        //image
+        const innercont = document.createElement('img');
+        innercont.src = product.photo;
+        innercont.alt = product.name;
+        
+        //details
+        const details = document.createElement('div');
+        details.classList.add('details');
+
+        //name
+
+        const name = document.createElement('div');
+        name.innerHTML=`name: ${product.name}`;
+        name.classList.add('name');
+
+        //price
+        const price=document.createElement('div');
+        price.innerHTML=`price: ${product.price}`;
+        price.classList.add('price');
+
+        container.appendChild(innercont);
+        container.appendChild(details);
+        details.appendChild(name);
+        details.appendChild(price);
+        
+        list.appendChild(container)
+    })
+
+
+
+</script>
+</body>
+</html>
